@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="41d85877-0c43-416c-9b01-1c40e80dea12" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="first_exampleFlow" doc:id="f472c06c-0683-4780-a78d-ebf3bfa8d9e1" >
+		<http:listener doc:name="Listener" doc:id="05651870-8a72-4597-8571-23fe5d26f30f" config-ref="HTTP_Listener_config" path="/exmp1"/>
+		<logger level="INFO" doc:name="Logger" doc:id="9c12a6d7-de0a-494c-b1ee-d24c0cd3948c" message="-------service started------"/>
+		<set-payload value="hi all welocome to mule soft" doc:name="Set Payload" doc:id="7e1aee08-1e0f-4a5b-ba86-6777211a03a1" />
+		<set-payload value="hi all welocme to mule soft again" doc:name="Set Payload" doc:id="8d531037-65b0-4472-b4f1-a1f780438222" />
+		<logger level="INFO" doc:name="Logger" doc:id="5d81499a-da07-4506-a874-b0837c393869" message="----service ended------"/>
+	</flow>
+</mule>
